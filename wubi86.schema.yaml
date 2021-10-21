@@ -17,13 +17,13 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ 中文, 西文 ]
+    states: [西文, 中文]
   - name: full_shape
-    states: [ 半角, 全角 ]
+    states: [半角, 全角]
   - name: extended_charset
-    states: [ 常用, 增廣 ]
+    states: [常用, 增廣]
   - name: ascii_punct
-    states: [ 。，, ．， ]
+    states: [．，, 。，]
 
 engine:
   processors:
@@ -53,10 +53,11 @@ speller:
 translator:
   dictionary: wubi86
   enable_charset_filter: true
-  enable_sentence: true
-  enable_encoder: true
-  encode_commit_history: true
+  enable_sentence: false
+  enable_encoder: false
+  encode_commit_history: false
   max_phrase_length: 4
+  enable_user_dict: false
   disable_user_dict_for_patterns:
     - "^z.*$"
 
@@ -71,13 +72,16 @@ reverse_lookup:
     - xform/([jqxy])v/$1u/
 
 punctuator:
-  import_preset: symbols
+  #import_preset: symbols
 
 key_binder:
   import_preset: default
+  bindings:
+    - { accept: semicolon, send: 2, when: has_menu }
+    - { accept: apostrophe, send: 3, when: has_menu }
 
 recognizer:
   import_preset: default
   patterns:
-    punct: '^/([0-9]0?|[A-Za-z]+)$'
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
     reverse_lookup: "^z[a-z]*'?$"
