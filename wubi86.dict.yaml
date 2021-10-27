@@ -6672,7 +6672,7 @@ encoder:
 暰	jtwh	100
 䗥	jtwh	99
 鉴	jtyq	100
-览	jtyq	99
+览	q	99
 蜷	judb	100
 㒽	judb	99
 蠬	jued	100
@@ -19534,6 +19534,7 @@ encoder:
 晦	jtx	100
 晦	jtxu	100
 临	jty	100
+览  jty 99
 暀	jtyg	100
 临	jtyj	100
 监	jtyl	100
